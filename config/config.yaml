@@ -1,0 +1,14 @@
+artifacts_root: artifacts
+
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://github.com/rushikesh092002/data_for_practice-/raw/main/data.csv
+  local_data_dir: artifacts/data_ingestion/data.csv
+  train_data_dir: artifacts/data_ingestion/train.csv
+  test_data_dir: artifacts/data_ingestion/test.csv
+
+data_validation:
+  root_dir: artifacts/data_validation
+  input_data_dir: artifacts/data_ingestion/data.csv
+  STATUS_FILE: artifacts/data_validation/status.txt
