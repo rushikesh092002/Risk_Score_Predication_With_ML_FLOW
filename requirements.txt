@@ -12,4 +12,7 @@ types-PyYAML
 Flask
 Flask-Cors
 catboost
+dill
+pickle
+dagshub
 -e .
