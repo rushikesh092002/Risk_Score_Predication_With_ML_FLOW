@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/asus/OneDrive/Desktop/Risk_Score_Predication_With_ML_FLOW/mlruns/0/01e8dac605e94f5e8f2c3f6991921728/artifacts
+end_time: 1738309709386
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 01e8dac605e94f5e8f2c3f6991921728
+run_name: angry-conch-588
+run_uuid: 01e8dac605e94f5e8f2c3f6991921728
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738309709334
+status: 4
+tags: []
+user_id: asus

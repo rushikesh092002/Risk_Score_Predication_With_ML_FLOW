@@ -38,3 +38,13 @@ class ModelTrainerConfig:
     depth: int               
     loss_function: str   
     early_stopping_rounds: int
+
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    test_data_path: Path
+    model_path: Path
+    all_params: dict
+    metric_file_name: Path
+    mlflow_uri: str

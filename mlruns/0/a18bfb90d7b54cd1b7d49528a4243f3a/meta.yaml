@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/asus/OneDrive/Desktop/Risk_Score_Predication_With_ML_FLOW/mlruns/0/a18bfb90d7b54cd1b7d49528a4243f3a/artifacts
+end_time: 1738310440335
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a18bfb90d7b54cd1b7d49528a4243f3a
+run_name: wistful-koi-410
+run_uuid: a18bfb90d7b54cd1b7d49528a4243f3a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738310434698
+status: 4
+tags: []
+user_id: asus

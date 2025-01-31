@@ -1,6 +1,6 @@
 catboost:
-  iterations: 1000        
-  learning_rate: 0.1      
-  depth: 6               
+  iterations: 1050      
+  learning_rate: 0.15      
+  depth: 5               
   loss_function: "RMSE"   
-  early_stopping_rounds: 100 
+  early_stopping_rounds: 90 

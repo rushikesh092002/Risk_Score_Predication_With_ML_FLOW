@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/asus/OneDrive/Desktop/Risk_Score_Predication_With_ML_FLOW/mlruns/0/c4bc392838994a1bb840ccf5d1ac24b2/artifacts
+end_time: 1738310215026
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c4bc392838994a1bb840ccf5d1ac24b2
+run_name: smiling-mule-240
+run_uuid: c4bc392838994a1bb840ccf5d1ac24b2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738310214955
+status: 3
+tags: []
+user_id: asus
