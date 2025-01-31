@@ -110,6 +110,12 @@ class DataTransformation:
             logger.info(f"Size of training data: {train_arr.shape}")
             logger.info(f"Size of test data: {test_arr.shape}")
 
+            save_object(
+                file_path=self.config.preprocessor_file_dir,
+                obj=preprocessing_obj
+
+            )
+
         except Exception as e:
             logger.error(f"Error in initiate_data_transformation: {str(e)}")
             raise e

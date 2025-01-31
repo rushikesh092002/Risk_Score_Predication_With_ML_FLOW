@@ -51,7 +51,9 @@ class ConfigurationManager:
             train_data_dir = config.train_data_dir,
             test_data_dir = config.test_data_dir,
             transformed_train_data_dir = config.transformed_train_data_dir,
-            transformed_test_data_dir = config.transformed_test_data_dir
+            transformed_test_data_dir = config.transformed_test_data_dir,
+            preprocessor_file_dir= config.preprocessor_file_dir
+        
         )
 
         return data_transformation_config

@@ -7,7 +7,9 @@ from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
-
+import dill
+import pickle
+import joblib
 
 
 
@@ -47,3 +49,27 @@ def save_json(path: Path , data: dict):
 def get_size(path: Path) -> str:
     size_in_kb = round(os.path.getsize(path)/1024)
     return f"~ {size_in_kb} KB"
+
+def save_object(file_path,obj):
+    dir_path=os.path.dirname(file_path)
+
+    os.makedirs(dir_path,exist_ok=True)
+
+    with open(file_path,"wb") as file_obj:
+        pickle.dump(obj,file_obj)
+
+
+
+def load_object(file_path):
+    try:
+        
+        if file_path.endswith(".pkl"):
+            with open(file_path, 'rb') as file:
+                return pickle.load(file)
+        elif file_path.endswith(".joblib"):
+            return joblib.load(file_path)
+        else:
+            raise ValueError("Unsupported file extension. Use .pkl or .joblib.")
+    except Exception as e:
+        raise e
+    

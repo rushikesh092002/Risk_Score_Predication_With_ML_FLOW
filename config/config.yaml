@@ -19,6 +19,7 @@ data_transformation:
  test_data_dir: artifacts/data_ingestion/test.csv
  transformed_train_data_dir: artifacts/data_transformation/transformed_train.csv
  transformed_test_data_dir: artifacts/data_transformation/transformed_test.csv
+ preprocessor_file_dir: artifacts/data_transformation/preprocessor.pkl
 
 model_trainer:
   root_dir: artifacts/model_trainer

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Background Gradient */
+        body {
+            background: linear-gradient(120deg, #ff7eb3, #ff758c);
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container Styling */
+        .container {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 40px 50px;
+            margin-top: 50px;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 2.5rem;
+            color: #ff4d6d;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Label Styling */
+        label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #444;
+        }
+
+        /* Input Field Styling */
+        .form-control {
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #ff4d6d;
+            box-shadow: 0 0 8px rgba(255, 77, 109, 0.5);
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #ff4d6d;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d63b5e;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Alert Box */
+        .alert {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 576px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Prediction Form</h1>
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <!-- Numerical Fields -->
+            {% for field in ['Age', 'AnnualIncome', 'CreditScore', 'Experience', 'LoanAmount', 'LoanDuration', 'NumberOfDependents', 'MonthlyDebtPayments', 'CreditCardUtilizationRate', 'NumberOfOpenCreditLines', 'NumberOfCreditInquiries', 'DebtToIncomeRatio', 'BankruptcyHistory', 'PreviousLoanDefaults', 'PaymentHistory', 'LengthOfCreditHistory', 'SavingsAccountBalance', 'CheckingAccountBalance', 'TotalAssets', 'TotalLiabilities', 'MonthlyIncome', 'UtilityBillsPaymentHistory', 'JobTenure', 'NetWorth', 'BaseInterestRate', 'InterestRate', 'MonthlyLoanPayment', 'TotalDebtToIncomeRatio'] %}
+                <div class="form-group">
+                    <label for="{{ field }}">{{ field.replace('_', ' ') }}</label>
+                    <input type="number" class="form-control" id="{{ field }}" name="{{ field }}" step="any" placeholder="Enter {{ field.replace('_', ' ') }}" required>
+                </div>
+            {% endfor %}
+
+            <!-- Categorical Fields -->
+            <div class="form-group">
+                <label for="LoanApproved">Loan Approved</label>
+                <select class="form-control" id="LoanApproved" name="LoanApproved" required>
+                    <option disabled selected value="">Select</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="EmploymentStatus">Employment Status</label>
+                <select class="form-control" id="EmploymentStatus" name="EmploymentStatus" required>
+                    <option disabled selected value="">Select Employment Status</option>
+                    <option value="Employed">Employed</option>
+                    <option value="Self-Employed">Self-Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="EducationLevel">Education Level</label>
+                <select class="form-control" id="EducationLevel" name="EducationLevel" required>
+                    <option disabled selected value="">Select Education Level</option>
+                    <option value="High School">High School</option>
+                    <option value="Associate's Degree">Associate</option>
+                    <option value="Bachelor's Degree">Bachelor</option>
+                    <option value="Master's Degree">Master</option>
+                    <option value="Doctorate">Doctorate</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="MaritalStatus">Marital Status</label>
+                <select class="form-control" id="MaritalStatus" name="MaritalStatus" required>
+                    <option disabled selected value="">Select Marital Status</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="HomeOwnershipStatus">Home Ownership Status</label>
+                <select class="form-control" id="HomeOwnershipStatus" name="HomeOwnershipStatus" required>
+                    <option disabled selected value="">Select Home Ownership Status</option>
+                    <option value="Own">Own</option>
+                    <option value="Mortgage">Mortgage</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="LoanPurpose">Loan Purpose</label>
+                <select class="form-control" id="LoanPurpose" name="LoanPurpose" required>
+                    <option disabled selected value="">Select Loan Purpose</option>
+                    <option value="Home">Home</option>
+                    <option value="Debt Consolidation">Debt Consolidation</option>
+                    <option value="Education">Education</option>
+                    <option value="Auto">Auto</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-block">Predict</button>
+        </form>
+
+        {% if results is defined %}
+            <div class="alert">
+                <h4>Prediction Result:</h4>
+                <p>{{ results }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
